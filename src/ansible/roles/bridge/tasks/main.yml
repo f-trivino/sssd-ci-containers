@@ -1,0 +1,17 @@
+- name: Download ipatuura gitHub project as tar.gz
+  hosts: localhost
+  tasks:
+    - name: Download repository archive
+      get_url:
+        url: https://github.com/freeipa/ipa-tuura/archive/master.tar.gz
+        dest: /tmp/bridge.tgz
+
+- name: Unzip software
+  unarchive:
+    remote_src: yes
+    src: /tmp/bridge.tgz
+    dest: /opt/ipatuura
+    owner: ipatuura
+    group: ipatuura
+    extra_opts:
+    - --strip-components=1

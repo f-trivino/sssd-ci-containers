@@ -42,7 +42,12 @@ service: {
     netbios: AD,
     safe_password: Secret123,
     suffix: 'dc=ad,dc=test'
-  }
+  },
+  bridge: {
+    domain: ipa.test,
+    fqn: bridge.ipa.test,
+    admin_password: Secret123
+  },
 }
 
 user_regular_uid: 1000
